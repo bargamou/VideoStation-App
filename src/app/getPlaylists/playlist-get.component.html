@@ -1,0 +1,64 @@
+<mat-card class="example-card">
+    <mat-card-header>
+    <mat-card-title class="mat-card-title">Liste des playlists</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-button style="display: block; margin:0 auto;" (click)="goToHome()">Quitter</button>
+    </mat-card-actions> 
+    <mat-card-content style="width: 100%;">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Nom</td>
+                    <td style="text-align: center;">Videos</td>
+                    
+                    <td colspan="2">Actions</td>
+                </tr>
+            </thead>
+
+                <tbody>
+                    <tr *ngFor="let playlist of playlists">
+                            <td>{{ playlist.nom }}</td>
+                            <td>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td>Image Video</td>
+                                            <td>Video Titre</td>
+                                            <td>Channel Titre</td>
+                                            <td>Date Publication</td>
+                                            <td>Description</td>
+                                            <td>Accéder à la video</td>
+                                            <td>Annonce</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr  *ngFor="let video of playlist.videos">
+                                        <td><img [src]="video.thumbnail"></td>
+                                        <td>{{video.title}}</td>
+                                        <td> <a [href]="video.channelUrl" target="_blank">{{ video.channelTitle }}</a> </td>
+                                        <td>{{ video.publishedAt | date:'mediumDate' }}</td>
+                                        <td>{{ video.description?.slice(0,50) }}...</td>
+                                        <td><a [href]="video.videoUrl" target="_blank" class="extra content">
+                                        <button class="ui right floated tiny red right labeled icon button">
+                                        <i class="external alternate icon"></i>
+                                        Watch
+                                        </button>
+                                        </a>
+                                        </td>
+                                        <td>
+                                            <div *ngFor="let annonce of annonces">
+                                                <li *ngIf="annonce.video === video.title "> {{annonce.content}} </li>
+                                            </div> 
+                                            <!--<ng-template [ngIf]="annonce.video === video.title "><div></div></ng-template> -->
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                </table> 
+                            </td> 
+                        <td><a (click)="deletePlaylist(playlist._id)" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                </tbody>
+                </table>
+    </mat-card-content>
+</mat-card> 
