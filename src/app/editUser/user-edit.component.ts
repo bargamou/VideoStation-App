@@ -37,7 +37,7 @@ export class UserEditComponent implements OnInit {
     });
   }
 
-  updateUser(username, password, nom, prenom, email, id) {
+  updateUser(username, password, nom, prenom, email) {
     console.log("component : " + username);
     this.route.params.subscribe(params => {
       this.ds.updateUser(username, password, nom, prenom, email, params['id']).subscribe((data: string) =>{

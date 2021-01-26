@@ -2,7 +2,7 @@ import { Video } from "./shared/models/search.interface";
 import { User } from "./User";
 
 export interface Playlist {
-    name?: string;
+    nom?: string;
     videos?: Video[];
     username?: string; 
 }
