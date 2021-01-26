@@ -47,7 +47,16 @@
         </div>
       </div>
       <div class="form-group">
-        <button (click)="updateUser(username.value, password.value, nom.value, prenom.value, email.value)"
+        <label class="col-md-4">Role </label>
+        <input type="text" class="form-control" formControlName="role" #role [(ngModel)] = "user.role" />
+      </div>
+      <div *ngIf="angForm.controls['role'].invalid && (angForm.controls['role'].dirty || angForm.controls['role'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['role'].errors.required">
+          role is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateUser(username.value, password.value, nom.value, prenom.value, email.value, role.value)"
         [disabled]="angForm.invalid" 
         class="btn btn-primary">Modifier Utilisateur</button>
       </div>

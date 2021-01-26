@@ -51,15 +51,15 @@ export class UserService {
             .get(`${this.uri}/edit/${id}`);
     }
 
-  updateUser(username, password, nom, prenom, email, id) {
-      console.log('Service : ' + username)
+  updateUser(username, password, nom, prenom, email, role , id) {
+      console.log('Service : ' + role);
       const obj = {
         username: username,
         password: password,
         nom: nom,
         prenom: prenom,
         email: email,
-        role: 'User'  
+        role: role  
       };
       return this
         .http

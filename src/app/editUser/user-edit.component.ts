@@ -25,7 +25,8 @@ export class UserEditComponent implements OnInit {
         password: ['', Validators.required ],
         nom: ['', Validators.required ],
         prenom: ['', Validators.required ],
-        email: ['', Validators.required ]
+        email: ['', Validators.required ],
+        role: ['', Validators.required ]
       });
     }
 
@@ -37,10 +38,10 @@ export class UserEditComponent implements OnInit {
     });
   }
 
-  updateUser(username, password, nom, prenom, email) {
+  updateUser(username, password, nom, prenom, email, role) {
     console.log("component : " + username);
     this.route.params.subscribe(params => {
-      this.ds.updateUser(username, password, nom, prenom, email, params['id']).subscribe((data: string) =>{
+      this.ds.updateUser(username, password, nom, prenom, email, role, params['id']).subscribe((data: string) =>{
         console.log(data);
         this.router.navigate(['getUsers']);
     });
