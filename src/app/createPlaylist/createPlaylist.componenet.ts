@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../User.service';
-import { User } from '../User';
 import { Router } from '@angular/router';
 import { Playlist } from '../Playlist';
 import { PlaylistService } from '../playlist.service';

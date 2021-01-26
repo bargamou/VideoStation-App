@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {Playlist} from '../Playlist';
 import { PlaylistService } from '../playlist.service';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
 import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../Annonce';
 

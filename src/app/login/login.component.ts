@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../User';
-import { Subscription } from 'rxjs';
 
 
 
